@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "WorkSans-Bold";
+  src: url("./assets/fonts/static/WorkSans-Bold.ttf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "WorkSans-Regular";
+  src: url("./assets/fonts/static/WorkSans-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "WorkSans-SemiBold";
+  src: url("./assets/fonts/static/WorkSans-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+.main {
+  height: 100%;
+  background-color: #f9eeff;
+  background-image: url("./assets/images/background-pattern-desktop.svg");
+  background-repeat: repeat-x;
+  background-position-y: top;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}

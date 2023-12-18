@@ -1,0 +1,72 @@
+.accordion-box {
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-top: 30px;
+  padding-bottom: 12px;
+  width: 100%;
+  max-width: 500px;
+  overflow-y: auto;
+  max-height: 95%;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 10px 50px -3px #8d4dab52;
+  margin: 8px;
+}
+
+.accordion-box::-webkit-scrollbar {
+  width: 0.5rem;
+}
+ 
+.accordion-box::-webkit-scrollbar-track {
+  background-color: #0000;
+}
+ 
+.accordion-box::-webkit-scrollbar-thumb {
+  background-color: #dda2f9;
+  border-radius: 0.25rem;
+}
+
+.accordion {
+  border-bottom: 1px solid #eee;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.accordion:last-child {
+  border: none;
+}
+
+.title {
+  display: flex;
+  gap: 20px;
+  color: #341638;
+  font-family: "WorkSans-Bold", sans-serif;
+  font-size: 1.5rem;
+}
+
+.title > h1 {
+  margin: 8px 0px;
+}
+
+.title > img {
+  width: 2.25rem;
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #341638;
+  font-family: "WorkSans-SemiBold", sans-serif;
+  font-weight: 600;
+}
+
+.panel {
+  display: none;
+  color: #847386;
+  font-family: "WorkSans-Regular", sans-serif;
+}
+
+.label > img {
+  width: 1.7rem;
+}
