@@ -1,0 +1,50 @@
+html, body, #root, .main {
+  width: 100%;
+  height: 100%;
+}
+.main {
+  background-color: #202632;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  font-family: 'Manrope', sans-serif;
+  margin: 16px;
+  padding: 48px 32px 0 32px;
+  background-color: #313a49;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 500px;
+  box-shadow: 0 10px 100px -40px #12161d;
+}
+.loading, .error, .advice-text {
+  color: #cee2e8;
+  font-size: 1.6rem;
+  margin: 2rem 0;
+  font-weight: bold;
+}
+.advice-id {
+  color: #53ffa9;
+  font-size: 0.75rem;
+  letter-spacing: 0.25rem;
+}
+.divider {
+  width: 100%;
+}
+.dice {
+  background-color: #53ffa9;
+  padding: 16px;
+  border-radius: 40px;
+  position: relative;
+  bottom: -28px;
+  border: 0;
+  height: min-content;
+}
+.dice:hover {
+  box-shadow: 0 0 30px 0 #53ffa9;
+  transition: ease-out 0.25s;
+}
+.dice img {
+  display: block;
+}
