@@ -1,0 +1,216 @@
+:root {
+  --fg-primary: #ffffff;
+  --fg-secondary: #99a1c7;
+  --bg-primary: #20222f;
+  --bg-secondary: #252b43;
+  --bg-secondary-active: #333a56;
+  --green: #36a08d;
+  --red: #b95062;
+}
+[data-theme="light"] {
+  --fg-primary: #000000;
+  --fg-secondary: #636573;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f0f3fa;
+  --bg-secondary-active: #e1e3f0;
+}
+.main {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--fg-secondary);
+  background-color: var(--bg-primary);
+  padding: 0 12.5% 2rem 12.5%;
+}
+h1, h2, h3 {
+  color: var(--fg-primary);
+}
+p {
+  font-size: 0.8rem;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 0;
+}
+.toggle-theme {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+/* --------------------------------- */
+.switch {
+  position: relative;
+  display: inline-block;
+  min-width: 46px;
+  height: 26px;
+}
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 21px;
+  width: 21px;
+  right: 2.5px;
+  bottom: 2.5px;
+  background-color: var(--bg-primary);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input:checked + .slider {
+  background: rgb(71,147,204);
+  background: linear-gradient(90deg, rgba(71,147,204,1) 0%, rgba(71,201,144,1) 100%);
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(-20px);
+  -ms-transform: translateX(-20px);
+  transform: translateX(-20px);
+}
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+/* --------------------------------- */
+
+.accounts, .overview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.account-card, .overview-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+  padding: 1.5rem;
+  border-radius: 5px;
+}
+.account-card {
+  align-items: center;
+  text-align: center;
+  background-color: var(--bg-secondary);
+}
+.account-card:nth-child(1) {
+  border-top: 4px solid #178ef5;
+}
+.account-card:nth-child(2) {
+  border-top: 4px solid #1da1f0;
+}
+.account-card:nth-child(3) {
+  border-top: 4px solid transparent;
+  background: linear-gradient(var(--bg-secondary), var(--bg-secondary)) padding-box, linear-gradient(90deg, rgba(253,192,107,1) 0%, rgba(223,75,149,1) 100%) border-box;
+}
+.account-card:nth-child(4) {
+  border-top: 4px solid #c30129;
+}
+.account-card:hover {
+  background-color: var(--bg-secondary-active);
+}
+.account-card:nth-child(3):hover {
+  background: linear-gradient(var(--bg-secondary-active), var(--bg-secondary-active)) padding-box, linear-gradient(90deg, rgba(253,192,107,1) 0%, rgba(223,75,149,1) 100%) border-box;
+}
+.handle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.follower-count {
+  font-size: 3.75rem;
+  line-height: 4rem;
+}
+.followers > p {
+  letter-spacing: 0.25rem;
+  font-size: 0.7rem;
+}
+#overview-heading {
+  margin: 2.5rem 0 1.25rem 0;
+}
+.overview-card {
+  justify-content: space-between;
+  background-color: var(--bg-secondary);
+}
+.overview-card:hover {
+  background-color: var(--bg-secondary-active);
+}
+.overview-card .top {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+.overview-card .bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.increase, .decrease {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+}
+.increase {
+  color: var(--green);
+}
+.increase i {
+  content: url("./assets/images/icon-up.svg");
+}
+.decrease {
+  color: var(--red);
+}
+.decrease i {
+  content: url("./assets/images/icon-down.svg");
+}
+@media only screen and (max-width: 67rem) {
+  .accounts, .overview {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media only screen and (max-width: 52rem) {
+  .accounts, .overview {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .main {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
+@media only screen and (max-width: 37rem) {
+  .accounts, .overview {
+    grid-template-columns: 1fr;
+  }
+  .main {
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+  header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .head {
+    padding-bottom: 1.25rem;
+  }
+  .toggle-theme {
+    justify-content: space-between;
+    border-top: 1px solid #99a1c777;
+    padding-top: 1.25rem;
+  }
+}
