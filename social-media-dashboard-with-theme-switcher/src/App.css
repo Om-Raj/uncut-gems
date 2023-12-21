@@ -20,6 +20,7 @@
   color: var(--fg-secondary);
   background-color: var(--bg-primary);
   padding: 0 12.5% 2rem 12.5%;
+  transition: 0.3s ease-in-out;
 }
 h1, h2, h3 {
   color: var(--fg-primary);
