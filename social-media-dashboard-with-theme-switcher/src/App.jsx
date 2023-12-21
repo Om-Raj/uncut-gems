@@ -3,9 +3,7 @@ import fbIcon from "./assets/images/icon-facebook.svg"
 import twitterIcon from "./assets/images/icon-twitter.svg"
 import instaIcon from "./assets/images/icon-instagram.svg"
 import ytIcon from "./assets/images/icon-youtube.svg"
-import { useState } from 'react'
-// import upIcon from "./assets/images/icon-up.svg"
-// import downIcon from "./assets/images/icon-down.svg"
+import { useEffect, useState } from 'react'
 
 function App() {
   const accounts = [
@@ -24,7 +22,13 @@ function App() {
     {site: "Youtube", siteIcon: ytIcon, count: "107", title: "Likes", change: -19},
     {site: "Youtube", siteIcon: ytIcon, count: "1407", title: "Total Views", change: -12}
   ]
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(() => {
+    const preferDark = JSON.parse(localStorage.getItem("isDark"));
+    return preferDark? true : false;
+  });
+  useEffect(() => {
+    localStorage.setItem('isDark', JSON.stringify(isDark));
+  }, [isDark])
   return (
     <div className="main" data-theme={ isDark? "dark": "light" }>
       <header>
