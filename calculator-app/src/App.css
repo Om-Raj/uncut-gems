@@ -91,7 +91,8 @@
   text-align: right;
   padding: 24px;
   border-radius: 8px;
-  min-height: 36px;
+  min-height: 120px;
+  overflow-x: auto;
 }
 
 .keypad {
