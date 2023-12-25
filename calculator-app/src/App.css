@@ -17,49 +17,49 @@
   --shadow-btn-3: #96271c;
 }
 [data-theme="light"] {
-  --fg-primary: ;
-  --fg-btn-1: ;
-  --fg-btn-2: ;
-  --fg-btn-3: ;
-  --bg-primary: ;
-  --bg-secondary: ;
-  --bg-screen: ;
-  --bg-btn-1: ;
-  --bg-btn-2: ;
-  --bg-btn-3: ;
-  --bg-btn-1-active: ;
-  --bg-btn-2-active: ;
-  --bg-btn-3-active: ;
-  --shadow-btn-1: ;
-  --shadow-btn-2: ;
-  --shadow-btn-3: ;
+  --fg-primary: #000000;
+  --fg-btn-1: #000000;
+  --fg-btn-2: #ffffff;
+  --fg-btn-3: #ffffff;
+  --bg-primary: hsl(0, 0%, 90%);
+  --bg-secondary: hsl(0, 5%, 81%);
+  --bg-screen: hsl(0, 0%, 93%);
+  --bg-btn-1: hsl(45, 7%, 89%);
+  --bg-btn-2: hsl(185, 42%, 37%);
+  --bg-btn-3: hsl(25, 98%, 40%);
+  --bg-btn-1-active: #ffffff;
+  --bg-btn-2-active: #62b5bd;
+  --bg-btn-3-active: #ff8b38;
+  --shadow-btn-1: hsl(35, 11%, 61%);
+  --shadow-btn-2: hsl(185, 58%, 25%);
+  --shadow-btn-3: hsl(25, 99%, 27%);
 }
 [data-theme="night"] {
-  --fg-primary: ;
-  --fg-btn-1: ;
-  --fg-btn-2: ;
-  --fg-btn-3: ;
-  --bg-primary: ;
-  --bg-secondary: ;
-  --bg-screen: ;
-  --bg-btn-1: ;
-  --bg-btn-2: ;
-  --bg-btn-3: ;
-  --bg-btn-1-active: ;
-  --bg-btn-2-active: ;
-  --bg-btn-3-active: ;
-  --shadow-btn-1: ;
-  --shadow-btn-2: ;
-  --shadow-btn-3: ;
+  --fg-primary: hsl(52, 100%, 62%);
+  --fg-btn-1: hsl(52, 100%, 62%);
+  --fg-btn-2: hsl(0, 0%, 100%);
+  --fg-btn-3: hsl(198, 20%, 13%);
+  --bg-primary: hsl(268, 75%, 9%);
+  --bg-secondary: hsl(268, 71%, 12%);
+  --bg-screen: #1e0836;
+  --bg-btn-1: hsl(268, 47%, 21%);
+  --bg-btn-2: #331b4d;
+  --bg-btn-3: hsl(176, 100%, 44%);
+  --bg-btn-1-active: #6b34ac;
+  --bg-btn-2-active: #8731b0;
+  --bg-btn-3-active: #94fff9;
+  --shadow-btn-1: hsl(290, 70%, 36%);
+  --shadow-btn-2: hsl(285, 91%, 52%);
+  --shadow-btn-3: hsl(177, 92%, 70%);
 }
 
-#root {
+.container {
   display: grid;
   place-content: center;
-  background-color: var(--bg-primary);
   min-height: 100vh;
+  background-color: var(--bg-primary);
+  transition: 0.3s ease-in-out;
 }
-
 .app {
   font-family: "League Spartan", sans-serif;
   font-weight: 700;
@@ -72,7 +72,7 @@
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   color: var(--fg-primary);
 }
 .brand {
@@ -80,8 +80,42 @@
   font-size: 2rem;
 }
 .toggle-theme {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
   font-size: .8rem;
   font-weight: bold;
+}
+.theme-labels {
+  display: flex;
+  justify-content: space-around;
+}
+.toggler {
+  display: flex;
+  flex-direction: column;
+}
+.toggle-switch {
+  display: flex;
+  gap: 0.33rem;
+  position: relative;
+  padding: .25rem;
+  background-color: var(--bg-secondary);
+  border-radius: 1rem;
+}
+.theme-switch {
+  width: 1rem;
+  height: 1rem;
+  opacity: 0;
+  appearance: none;
+  background-color: var(--bg-btn-3);
+  border-radius: 100%;
+  transition: 0.2s ease-out;
+}
+.theme-switch:checked {
+  opacity: 1;
+}
+.theme-switch:checked:hover, .theme-switch:checked:active {
+  background-color: var(--bg-btn-3-active);
 }
 .screen {
   color: var(--fg-primary);
@@ -108,8 +142,9 @@
 .btn-1, .btn-2, .btn-3 {
   padding: 16px;
   text-align: center;
+  border: 0;
   border-radius: 6px;
-  border-bottom-width: 4px;
+  border-bottom-width: 3.5px;
   border-bottom-style: solid;
   font-weight: bold;
 }
