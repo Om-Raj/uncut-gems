@@ -3,7 +3,7 @@ import Task from "./Task";
 import "./Tasklist.css"
 import { useState } from "react";
 
-const Tasklist = ({isPending, error, tasks, setTasks}) => {
+const Tasklist = ({tasks, setTasks}) => {
   const [filter, setFilter] = useState(2);
   
   const toggleStatus = (id) => {
@@ -14,32 +14,20 @@ const Tasklist = ({isPending, error, tasks, setTasks}) => {
         break;
       }
     }
-    const newTasks = [...tasks];
+    const newTasks = Array.from(tasks);
     newTasks.splice(idx, 1, {
       id: id,
       task: tasks[idx].task,
       status: tasks[idx].status ? 0 : 1
     })
     setTasks(newTasks);
-    fetch("http://localhost:8000/tasks/"+id, {
-      method: 'PUT',
-      headers: {"Content-Type": 'application/json'},
-      body: JSON.stringify({
-        task: newTasks[idx].task,
-        status: newTasks[idx].status
-      })
-    })
   }
 
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id!==id));
-    fetch("http://localhost:8000/tasks/"+id, {
-      method: 'DELETE'
-    })
   }
 
   const clearCompleted = () => {
-    tasks.filter((task) => task.status).map((task) => deleteTask(task.id))
     setTasks(tasks.filter((task) => task.status===0))
   }
 
@@ -53,13 +41,6 @@ const Tasklist = ({isPending, error, tasks, setTasks}) => {
 
   return ( 
       <div className="list">
-        { error &&
-          <div className="error">{error}</div>
-        }
-        { isPending && 
-          <div className="loading">Loading...</div>
-        }
-        { !error && !isPending &&
           <DragDropContext onDragEnd={handleOnDragEnd}>
             <Droppable droppableId="task-list">
               {(provided) => (
@@ -78,7 +59,6 @@ const Tasklist = ({isPending, error, tasks, setTasks}) => {
               )}
             </Droppable>
           </DragDropContext>
-        }
         <div className="list-options">
           <div className="item-count">{ tasks && tasks.filter(task => task.status===0).length } items left</div>
           <div className="filters">

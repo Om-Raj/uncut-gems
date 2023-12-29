@@ -13,6 +13,7 @@
     background-color: var(--fg-2);
     border-radius: 100%;
     padding: 0.1rem;
+    cursor: pointer;
 }
 .status-indicator-wrapper:hover {
     background: rgb(87,221,255);
@@ -47,6 +48,7 @@
 }
 .delete-item {
     display: none;
+    cursor: pointer;
 }
 .list-item:hover > .delete-item {
     display: block;

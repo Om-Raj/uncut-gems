@@ -29,8 +29,9 @@
     gap: 1rem;
 }
 [data-filter-active="true"] {
-    color: var(--filter-active);
+    color: var(--filter-active)!important;
 }
 .filters > div:hover, .clear-completed:hover {
     color: var(--fg-2-active);
+    cursor: pointer;
 }

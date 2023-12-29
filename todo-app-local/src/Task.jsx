@@ -1,12 +1,10 @@
 import checkIcon from "./assets/icon-check.svg"
 import crossIcon from "./assets/icon-cross.svg"
 import "./Task.css"
-// import { Draggable } from "react-beautiful-dnd";
 
 const Task = ({id, task, status, toggleStatus, deleteTask}) => {
   
   return ( 
-    // <Draggable>
       <div className="list-item" data-status={status}>
         <div className="status-indicator-wrapper" onClick={() => toggleStatus(id)}>
           <div className="status-indicator">
@@ -20,7 +18,6 @@ const Task = ({id, task, status, toggleStatus, deleteTask}) => {
           <img src={crossIcon} alt="Cross icon" />
         </div>
       </div>
-    // </Draggable>
   );
 }
  

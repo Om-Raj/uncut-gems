@@ -1,10 +1,10 @@
 import './App.css'
 import { useEffect, useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 import moonIcon from "./assets/icon-moon.svg"
 import sunIcon from "./assets/icon-sun.svg"
 import checkIcon from "./assets/icon-check.svg"
 import Tasklist from './Tasklist';
-// import { DragDropContext } from 'react-beautiful-dnd';
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -17,48 +17,26 @@ function App() {
   }
   const [task, setTask] = useState("");
   const [active, setActive] = useState(false);
-  const [error, setError] = useState(null);
-  const [tasks, setTasks] = useState(null);
-  const [isPending, setIsPending] = useState(true);
+  const [tasks, setTasks] = useState(() => {
+    const storedTasks = JSON.parse(localStorage.getItem("tasks"));
+    return storedTasks? storedTasks: [];
+  });
 
   useEffect(() => {
-    if (isPending) {
-      console.log("fetch called")
-      fetch("http://localhost:8000/tasks")
-        .then(response => {
-          if (!response.ok) {
-            throw Error('Could not fetch the data from the resource.');
-          }
-          return response.json();
-        })
-        .then(data => {
-          setIsPending(false);
-          setTasks(data);
-          setError(null);
-        })
-        .catch(err => {
-          setIsPending(false);
-          setError(err.message);
-        })
-    }
-  })
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks])
 
   const handleSubmit = (e) => {
     const status = active ? 1 : 0; 
-    const newTask = {task, status}
+    const newTask = {
+      "id": uuidv4(), 
+      "task": task,
+      "status": status
+    }
     e.preventDefault()
-    fetch("http://localhost:8000/tasks", {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(newTask)
-    })
-      .then((data) => data.json())
-      .then((task) => {
-        setTasks([
-          ...tasks,
-          task
-        ])    
-      })
+    const items = Array.from(tasks);
+    items.push(newTask);
+    setTasks(items);
     setActive(false);
     setTask("");
   }
@@ -80,9 +58,7 @@ function App() {
           <input id="task-input" type="text" placeholder='Create a new todo...' value={task} onChange={(e) => setTask(e.target.value)}/>
           <input type="submit" hidden/>
         </form>
-        {/* <DragDropContext> */}
-          <Tasklist isPending={isPending} error={error} tasks={tasks} setTasks={setTasks}/>
-        {/* </DragDropContext> */}
+        <Tasklist tasks={tasks} setTasks={setTasks}/>
         <div className="footer">
           Drag and drop to reorder list
         </div>
