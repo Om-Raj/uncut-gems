@@ -1,0 +1,54 @@
+.list-item {
+    display: grid;
+    grid-template-columns: 2.125rem 1fr 2rem;
+    padding: 1rem 1.5rem;
+    align-items: center;
+    border-bottom: 1px solid var(--fg-3);
+    font-size: 1.125rem;
+    background-color: var(--bg-2);
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+.status-indicator-wrapper {
+    background-color: var(--fg-2);
+    border-radius: 100%;
+    padding: 0.1rem;
+}
+.status-indicator-wrapper:hover {
+    background: rgb(87,221,255);
+    background: linear-gradient(135deg, rgba(87,221,255,1) 0%, rgba(192,88,243,1) 100%);
+}
+.status-indicator {
+    border-radius: 100%;
+    background-color: var(--bg-2);
+    padding: 0.5rem;
+}
+.list-item[data-status="1"] .status-indicator-wrapper, .list-item[data-status="1"] .status-indicator {
+    background: rgb(87,221,255);
+    background: linear-gradient(135deg, rgba(87,221,255,1) 0%, rgba(192,88,243,1) 100%);
+}
+.status-icon {
+    min-width: 1rem;
+    height: auto;
+    display: block;
+    opacity: 0;
+}
+.list-item[data-status="1"] .status-icon{
+    opacity: 1;
+}
+.task {
+    padding: 0.25rem 1.5rem;
+    color: var(--fg-2-active);
+}
+.list-item[data-status="1"] > .task {
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+    color: var(--fg-2);
+}
+.delete-item {
+    display: none;
+}
+.list-item:hover > .delete-item {
+    display: block;
+}
+

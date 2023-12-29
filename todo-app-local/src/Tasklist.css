@@ -1,0 +1,36 @@
+.list {
+  border-radius: 8px;
+  background-color: var(--bg-2);
+}
+#task-list {
+  border-radius: 8px;
+}
+#task-list > div {
+  border-radius: 8px;
+}
+.error, .loading {
+    padding: 1rem;
+    text-align: center;
+}
+.error {
+    color: orangered;
+}
+.list-options {
+    text-align: center;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    color: var(--fg-2);
+}
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+[data-filter-active="true"] {
+    color: var(--filter-active);
+}
+.filters > div:hover, .clear-completed:hover {
+    color: var(--fg-2-active);
+}
