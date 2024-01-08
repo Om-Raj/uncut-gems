@@ -1,0 +1,99 @@
+.navbar {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  opacity: 1;
+  z-index: 99;
+}
+#toggle-menu-btn {
+  display: none;
+  margin-right: 1.5rem;
+  z-index: 100;
+}
+#overlay {
+  position: fixed;
+  display: none;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.5);
+}
+#collapsible {
+  display: flex;
+  justify-content: space-between;
+  width: -webkit-fill-available;
+}
+.navigation {
+  display: flex;
+  align-items: center;
+}
+.navigation a {
+  font-family: "Lato",sans-serif;
+  color: #333;
+  text-decoration: none;
+  padding: 1rem;
+}
+.navigation a:hover {
+  color: #000;
+}
+#navbar-brand {
+  padding-left: 3.5rem;
+  padding-right: 2.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+#navbar-brand > img {
+  margin-top: .5rem;
+  height: 2rem;
+}
+.navbar-btns {
+  display: flex;
+  align-items: center;
+  margin-right: 2rem;
+  gap: 2.5rem;
+}
+.navbar-btns img {
+    width: 2rem;
+}
+
+@media screen and (max-width: 760px) {
+  #toggle-menu-btn {
+    display: block;
+  }
+  #collapsible {
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    z-index: 10;
+    width: 66vw;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    top: 0;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 72px 20px 20px 20px;
+    opacity: 1;
+
+  }
+  .navigation {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .navbar-btns {
+    width: 100%;
+    display: flex;
+    padding: 1rem;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+}

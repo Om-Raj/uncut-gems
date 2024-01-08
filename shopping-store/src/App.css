@@ -1,0 +1,38 @@
+html, body, #root {
+  width: 100%;
+  min-height: 100%;
+  --fg-1: #000;
+  --fg-2: #bbb;
+  --bg-1: #fff;
+  font-family: "Lato", sans-serif;
+}
+
+main {
+  margin: 4.5rem 0;
+}
+
+.hero-section {
+  margin-top: 4.5rem;
+  font-size: 30px;
+  padding: 0 5rem;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('./assets/hero9.jpg');
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media screen and (max-width: 760px) {
+  
+  .hero-section {
+    padding: 0 0.5rem;
+    background-image: url('./assets/hero4.jpg');
+  }
+}
