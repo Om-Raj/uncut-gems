@@ -59,10 +59,14 @@
     padding: .5rem;
     font-size: 14px;
     border-radius: 100px;
-    border: 1px solid var(--fg-1);
+    border: 1.5px solid var(--fg-1);
     cursor: pointer;
     min-width: 48px;
     text-align: center;
+}
+.category-tag[data-active="true"] {
+    background-color: #000;
+    color: #fff;
 }
 
 @media screen and (max-width: 1200px) {

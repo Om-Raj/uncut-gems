@@ -16,12 +16,12 @@ const ProductSection = ({products}) => {
                     <input className="search" type="text" placeholder="Search" value={query} onChange={(e) => setQuery(e.target.value)}/>
                 </div>
                 <div className="category-filter">
-                    <div className="category-tag" onClick={() => setCategory("All")}>All</div>
-                    <div className="category-tag" onClick={() => setCategory("Men's Apparel")}>Men's Apparel</div>
-                    <div className="category-tag" onClick={() => setCategory("Women's Apparel")}>Women's Apparel</div>
-                    <div className="category-tag" onClick={() => setCategory("Footwear")}>Footwear</div>
-                    <div className="category-tag" onClick={() => setCategory("Accessories")}>Accessories</div>
-                    <div className="category-tag" onClick={() => setCategory("Activewear")}>Activewear</div>
+                    <div className="category-tag" data-active={category==="All"} onClick={() => setCategory("All")}>All</div>
+                    <div className="category-tag" data-active={category==="Men's Apparel"} onClick={() => setCategory("Men's Apparel")}>Men's Apparel</div>
+                    <div className="category-tag" data-active={category==="Women's Apparel"} onClick={() => setCategory("Women's Apparel")}>Women's Apparel</div>
+                    <div className="category-tag" data-active={category==="Footwear"} onClick={() => setCategory("Footwear")}>Footwear</div>
+                    <div className="category-tag" data-active={category==="Accessories"} onClick={() => setCategory("Accessories")}>Accessories</div>
+                    <div className="category-tag" data-active={category==="Activewear"} onClick={() => setCategory("Activewear")}>Activewear</div>
                 </div>
             </div>
 
