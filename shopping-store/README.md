@@ -6,7 +6,7 @@
 - **Responsive design** using grid
 - **Collapsible navbar** on small screens
 - Mordern minimalistic look
-- **Filter products** by searching
+- **Filter products** by searching (**Bonus**)
 - Group products by tag
 - Reusable components using **React**
 
