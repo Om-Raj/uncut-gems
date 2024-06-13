@@ -1,8 +1,9 @@
-# React + Vite
+# Live Site
+  [TODO App](https://steady-kheer-e0b0bb.netlify.app/)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Features:-
+- Light & Dark theme
+- **Persistent storage** without login
+- Create, update and delete tasks
+- **Drag and Drop** to rearrange tasks
+- Minimalistic UI
